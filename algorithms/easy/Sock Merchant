@@ -7,7 +7,20 @@ import java.util.regex.*;
 public class Solution {
 
     static int sockMerchant(int n, int[] ar) {
-        // Complete this function
+        HashMap<Integer,Integer> colorFrequencies = new HashMap<Integer,Integer>();
+        Integer count = 0;
+        int totalPairs = 0;
+        
+         for (Integer sock : ar) {
+            count = colorFrequencies.containsKey(sock) ? colorFrequencies.get(sock) : 0;
+            colorFrequencies.put(sock, (count + 1));
+             
+            if ((count + 1)%2 == 0){
+                totalPairs += 1;
+            }
+         }
+        return totalPairs;
+
     }
 
     public static void main(String[] args) {
